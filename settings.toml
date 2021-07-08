@@ -1,0 +1,47 @@
+[default]
+DEBUG = false
+SECRET_KEY = "SECRET_KEY"
+#FLASK_ADMIN_SWATCH = "cerulean"
+#ADMIN_NAME = "little_notes System"
+EXTENSIONS = [
+    "little_notes.ext.db:init_app",
+    "little_notes.ext.cli:init_app",
+    "little_notes.ext.auth:init_app",
+    "little_notes.ext.site:init_app",
+]
+
+[development]
+DEBUG = true
+SECRET_KEY = "SECRET_KEY"
+SQLALCHEMY_DATABASE_URI = "sqlite:///../dev_db.sqlite3"
+SQLALCHEMY_TRACK_MODIFICATIONS = true
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+#ADMIN_NAME = "little_notes System (dev mode)"
+EXTENSIONS = [
+    "little_notes.ext.db:init_app",
+    "little_notes.ext.cli:init_app",
+    "little_notes.ext.toolbar:init_app",
+    "little_notes.ext.auth:init_app",
+    "little_notes.ext.site:init_app",
+]
+
+[test]
+DEBUG = true
+SECRET_KEY = "SECRET_KEY"
+SQLALCHEMY_DATABASE_URI = "sqlite:///../test_db.sqlite3"
+SQLALCHEMY_TRACK_MODIFICATIONS = true
+DEBUG_TB_TEMPLATE_EDITOR_ENABLED = true
+DEBUG_TB_PROFILER_ENABLED = true
+#ADMIN_NAME = "little_notes System (dev mode)"
+EXTENSIONS = [
+    "little_notes.ext.db:init_app",
+    "little_notes.ext.cli:init_app",
+    "little_notes.ext.auth:init_app",
+    "little_notes.ext.site:init_app",
+]
+
+[production]
+SECRET_KEY = "SECRET_KEY"
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+SQLALCHEMY_DATABASE_URI = "mysql:///../db.sqlite3"
